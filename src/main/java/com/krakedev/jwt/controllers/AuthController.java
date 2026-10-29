@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.krakedev.jwt.entidades.Usuario;
 import com.krakedev.jwt.services.UsuarioService;
+import com.krakedev.jwt.utils.JwtUtil;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -65,12 +66,16 @@ public class AuthController {
             }
 
             Usuario usuario = usuarioService.buscar(username);
+            
+            String token = JwtUtil.generarToken(usuario.getUsername(), usuario.getRol());
 
             return ResponseEntity.ok(
                     Map.of(
                             "mensaje", "Login exitoso",
                             "username", usuario.getUsername(),
-                            "rol", usuario.getRol()));
+                            "rol", usuario.getRol(),
+                            "token", token)
+                    );
 
         } catch (Exception e) {
 
