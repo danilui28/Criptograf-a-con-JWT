@@ -34,4 +34,10 @@ public class UsuarioService {
 		}
 		return false;
 	}
+	
+    public Usuario buscar(String username) {
+
+        return repository.findByUsername(username)
+                .orElse(null);
+    }
 }
