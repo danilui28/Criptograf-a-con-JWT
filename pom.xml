@@ -59,6 +59,11 @@
 		    <artifactId>java-jwt</artifactId>
 		    <version>4.4.0</version>
 		</dependency>
+		<dependency>
+			<groupId>com.krakeDev</groupId>
+			<artifactId>Excepciones</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>
